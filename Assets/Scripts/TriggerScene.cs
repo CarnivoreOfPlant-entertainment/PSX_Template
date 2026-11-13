@@ -8,6 +8,7 @@ public class TriggerScene : MonoBehaviour
 
     public bool isForInteracting;
     public bool isForSceneSwitching;
+    public bool isMoveCamera;
 
     public string sceneName;
 
@@ -43,6 +44,10 @@ public class TriggerScene : MonoBehaviour
                 if (isForInteracting)
                 {
                     UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+                }
+                else if (isMoveCamera)
+                {
+                    FindAnyObjectByType<Camera>(); // Not Finished but it can like move the camera to a designated point.
                 }
                 
             }
