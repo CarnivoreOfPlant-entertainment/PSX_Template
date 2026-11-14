@@ -22,6 +22,11 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-efb4863bd0546496ea977c6cfe219ee3-1120014658-0
         - globalObjectIdString: GlobalObjectId_V1-2-efb4863bd0546496ea977c6cfe219ee3-771385929-0
         - globalObjectIdString: GlobalObjectId_V1-2-efb4863bd0546496ea977c6cfe219ee3-614575284-0
+        - globalObjectIdString: GlobalObjectId_V1-2-efb4863bd0546496ea977c6cfe219ee3-2079364973-0
+        - globalObjectIdString: GlobalObjectId_V1-2-efb4863bd0546496ea977c6cfe219ee3-2068516000-0
+        - globalObjectIdString: GlobalObjectId_V1-2-efb4863bd0546496ea977c6cfe219ee3-311275054-0
+        - globalObjectIdString: GlobalObjectId_V1-2-efb4863bd0546496ea977c6cfe219ee3-589569317-0
+        - globalObjectIdString: GlobalObjectId_V1-2-efb4863bd0546496ea977c6cfe219ee3-2106225818-0
         values:
         - colorIndex: 2
           iconNameOrGuid: Transform Icon
@@ -33,6 +38,26 @@ MonoBehaviour:
           isColorRecursive: 0
         - colorIndex: 3
           iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 8
+          iconNameOrGuid: Text Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 3
+          iconNameOrGuid: Canvas Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 2
+          iconNameOrGuid: Transform Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 2
+          iconNameOrGuid: Transform Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 8
+          iconNameOrGuid: Text Icon
           isIconRecursive: 0
           isColorRecursive: 0
         - colorIndex: 8
