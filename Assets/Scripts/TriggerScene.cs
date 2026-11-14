@@ -9,6 +9,8 @@ public class TriggerScene : MonoBehaviour
     public bool isForInteracting;
     public bool isForSceneSwitching;
     public bool isMoveCamera;
+    public bool moveItem;
+    public GameObject itemToMove;
 
     public string sceneName;
 
@@ -49,7 +51,10 @@ public class TriggerScene : MonoBehaviour
                 {
                     FindAnyObjectByType<Camera>(); // Not Finished but it can like move the camera to a designated point.
                 }
-                
+                else if (moveItem)
+                {
+                    // Move the item with the itemToMove GameObject to a new position (example: move it up by 1 unit)
+                }
             }
 
         }
