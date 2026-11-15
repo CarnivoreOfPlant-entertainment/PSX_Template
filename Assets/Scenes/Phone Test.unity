@@ -405,16 +405,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NotificationManager
   phoneManager: {fileID: 454472475}
-  notifMoveSpeed: 1
-  notifDuration: 2
+  notifMoveSpeed: 0.3
+  notifDuration: 4
   notifName: CMA
-  notifText: Welcom to CMA...
+  notifText: Welcome to CMA...
   contactsPhoneText: Hello boy
   sendersPhoneText: dont talk to me
   contactsTextBubbleWidth: 180
   sendersTextBubbleWidth: 180
-  contactsTextBubbleHeight: 50
-  sendersTextBubbleHeight: 50
+  contactsTextBubbleHeight: 60
+  sendersTextBubbleHeight: 60
   contactsTextBubblePosX: -35
   sendersTextBubblePosX: 35
   contactsTextBubblePosY: 70
@@ -1048,13 +1048,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PhoneManager
   phoneUI: {fileID: 2079364973}
   phoneNotifUI: {fileID: 771385929}
+  notifSound: {fileID: 771385933}
   notifStartPos: {fileID: 1160912700}
   notifEndPos: {fileID: 1120014659}
   phoneStartPos: {fileID: 2068516001}
   phoneEndPos: {fileID: 311275055}
   notifDuration: 2
-  notifMoveSpeed: 3
-  phoneMoveSpeed: 1
+  notifMoveSpeed: 0.2
+  phoneMoveSpeed: 0.2
   notifNameText: {fileID: 1291118346}
   notifText: {fileID: 828096927}
   contactsText: {fileID: 589569319}
@@ -1255,7 +1256,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hello you look good today miss victoria...
+  m_text: Sample text please ignore.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1559,6 +1560,7 @@ GameObject:
   - component: {fileID: 771385930}
   - component: {fileID: 771385932}
   - component: {fileID: 771385931}
+  - component: {fileID: 771385933}
   m_Layer: 5
   m_Name: PhoneTestNotif
   m_TagString: Untagged
@@ -1626,6 +1628,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 771385929}
   m_CullTransparentMesh: 1
+--- !u!82 &771385933
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771385929}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: f28cf141c64d5413094de6c48c7d62a2, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.4
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &828096925
 GameObject:
   m_ObjectHideFlags: 0
@@ -3149,7 +3248,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hello you look good today miss victoria...
+  m_text: Sample text please ignore.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

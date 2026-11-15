@@ -8,6 +8,7 @@ public class PhoneManager : MonoBehaviour
     [Header("Phone Prefabs")]
     public GameObject phoneUI; // Reference to the phone prefab
     public GameObject phoneNotifUI; // Reference to the phone notification prefab
+    public AudioSource notifSound; // Reference to the notification sound audio source
 
     [Header("Transforms")] //Not complete
     public Transform notifStartPos; // Starting position for the notification
@@ -33,6 +34,9 @@ public class PhoneManager : MonoBehaviour
     public Image sendersTextBubbleImage; // Reference to the sender's text bubble image UI
 
     private Vector3 notifVelocity = Vector3.zero; // Velocity for smooth dampening of the notification movement
+    private Vector3 phoneVelocity = Vector3.zero; // Velocity for smooth dampening of the phone movement
+    private bool movePhone = false;
+    private bool moveNotif = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -45,31 +49,53 @@ public class PhoneManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !phoneActive)
         {
-            phoneUI.transform.position = Vector3.Lerp(phoneEndPos.position, phoneStartPos.position, phoneMoveSpeed * Time.time);
+            //phoneUI.transform.position = Vector3.SmoothDamp(phoneUI.transform.position, phoneStartPos.position, ref notifVelocity, phoneMoveSpeed);
             phoneActive = true;
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && phoneActive)
         {
-            phoneUI.transform.position = Vector3.Lerp(phoneStartPos.position, phoneEndPos.position, phoneMoveSpeed * Time.time);
+            //phoneUI.transform.position = Vector3.SmoothDamp(phoneUI.transform.position, phoneEndPos.position, ref notifVelocity, phoneMoveSpeed);
             phoneActive = false;
+        }
+
+        if (phoneActive) //not working >:(
+        {
+            phoneUI.transform.position = Vector3.SmoothDamp(phoneUI.transform.position, phoneStartPos.position, ref phoneVelocity, phoneMoveSpeed);
+        }
+
+        if (!phoneActive) // not working >:(
+        {
+            phoneUI.transform.position = Vector3.SmoothDamp(phoneUI.transform.position, phoneEndPos.position, ref phoneVelocity, phoneMoveSpeed);
+        }
+
+        // still not working >:(
+        if(moveNotif)
+        {
+            phoneNotifUI.transform.position = Vector3.SmoothDamp(phoneNotifUI.transform.position, notifEndPos.position, ref notifVelocity, notifMoveSpeed);
+        }
+
+        if (!moveNotif)
+        {
+            phoneNotifUI.transform.position = Vector3.SmoothDamp(phoneNotifUI.transform.position, notifStartPos.position, ref notifVelocity, notifMoveSpeed);
         }
     }
 
     public void ShowNotification(float speed, float duration)
     {
+        //play notif sound here
+        notifSound.Play();
+
         notifMoveSpeed = speed;
         notifDuration = duration;
+        moveNotif = true;
         //honeNotifUI.transform.position = Vector3.SmoothDamp(phoneNotifUI.transform.position, notifEndPos.position, ref notifVelocity, notifMoveSpeed);
         StartCoroutine(NotificationDuration());
     }
 
     public IEnumerator NotificationDuration()
     {
-        //Moving Notfi not working properly, need to fix it
-        phoneNotifUI.transform.position = Vector3.Slerp(notifStartPos.position, notifEndPos.position, notifMoveSpeed * Time.time);
-        
         yield return new WaitForSeconds(notifDuration);
-        phoneNotifUI.transform.position = Vector3.Slerp(notifEndPos.position, notifStartPos.position, notifMoveSpeed * Time.time);
+        moveNotif = false;
     }
 
     public void UpdatePhoneText(string contactsText, string sendersText, float contactsTextBubbleWidth, float sendersTextBubbleWidth, float contactsTextBubbleHeight, float sendersTextBubbleHeight, float contactsTextBubblePosX, float sendersTextBubblePosX, float contactsTextBubblePosY, float sendersTextBubblePosY)
